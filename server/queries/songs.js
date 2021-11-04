@@ -10,6 +10,10 @@ const getSongById = async (id) => {
   return song
 }
 
+const deleteSongById = async (id) => {
+  await db.oneOrNone("DELETE FROM songs WHERE id = $1", [ id ]);
+}
+
 const createNewSong = async (song) => {
   const insertQuery = `INSERT INTO songs (name, artist, album, time, is_favorite) VALUES ($1, $2, $3, $4, $5) RETURNING *`
   
@@ -21,5 +25,6 @@ const createNewSong = async (song) => {
 module.exports = { 
   getAllSongs, 
   getSongById,
-  createNewSong 
+  createNewSong, 
+  deleteSongById
 };

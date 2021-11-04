@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllSongs, getSongById, createNewSong } = require("../queries/songs");
+const { getAllSongs, getSongById, createNewSong, deleteSongById } = require("../queries/songs");
 
 // get all songs in database
 router.get('/', async (req, res) => {
@@ -56,10 +56,23 @@ router.post('/', async (req, res) => {
             error: false
         })
     } catch (error) {
-        res.json({
+        res.status(500).json({
             payload: null,
             message: 'An error has occured.',
             error: true
+        })
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    try {
+        let response = await deleteSongById(req.params.id)
+        res.json({
+            message: 'song deleted.'
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: 'an error has occured'
         })
     }
 })
