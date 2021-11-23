@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './components/home';
 import Navigation from './components/navigation';
 import Songs from './components/songs';
+import Song from './components/song';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/songs' component={Songs} />
+        <Route exact path='/song/:id' component={Song} />
       </Switch>
       <footer></footer>
     </div>

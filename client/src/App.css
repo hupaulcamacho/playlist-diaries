@@ -3,13 +3,13 @@
   flex: 1;
 }
 
+
 .main {
   flex: 1;
   text-align: center;
 }
 
 /* nav css */
-
 .main-nav {
   flex: 0 0 12em;
   display: flex;
@@ -31,4 +31,37 @@
 
 .nav-links:hover {
   background-color: #7b82c5;
+}
+
+/* songs css */
+.song {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: #686ea8;
+  border-radius: 5px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 10px;
+  color: #242841;
+}
+.song-link {
+  text-decoration: none;
+}
+
+.song:hover {
+  background-color: #7b82c5;
+}
+
+.song-el {
+  padding: 5px;
+}
+
+.favorited {
+  color: gold;
+}
+
+.unfavorited {
+  color: grey;
 }
